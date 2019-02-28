@@ -71,6 +71,9 @@ const setKoalas = (state = [], action) => {
     }
 }
 
+export default setKoalas;
+
+
 const sagaMiddleware = createSagaMiddleware();
 
 const storeInstance = createStore(
