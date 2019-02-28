@@ -7,10 +7,10 @@ const dbUrl = `mongodb://localhost:${PORT}/${dbName}`;
 
 mongoose.connect(dbUrl, { useNewUrlParser: true });
 
-mongoose.connect.on('error', (e) => {
+mongoose.connection.on('error', (e) => {
     console.log('error with connection', e);
 })
 
-mongoose.connect.once('connected', () => {
+mongoose.connection.once('connected', () => {
     console.log('mongo db connected on', PORT);
 })
