@@ -27,8 +27,8 @@ router.post('/', (req, res) => {
     }).catch((error) => {
         console.log(`error in posting koala: ${error}`);
         res.sendStatus(500);
-    })
-})
+    });
+});
 
 // PUT route
 router.put('', (req, res) => {

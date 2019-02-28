@@ -23,7 +23,6 @@ class KoalaForm extends Component {
             payload: this.state
         })
     }
-    
 
     render() {
         return(
