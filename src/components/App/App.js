@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import KoalaTable from '../KoalaTable/KoalaTable';
 import KoalaForm from '../KoalaForm/KoalaForm';
+import {connect} from 'react-redux';
 
 
 class App extends Component {
 
+  componentDidMount(){
+    this.props.dispatch({type: 'GET_KOALAS'})
+  }
+  
   render() {
     return (
       <div>
@@ -17,4 +22,6 @@ class App extends Component {
   
 }
 
-export default App;
+
+
+export default connect()(App);
