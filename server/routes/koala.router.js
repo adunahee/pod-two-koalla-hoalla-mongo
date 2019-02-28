@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
+//runs mongodb connection
+require('../modules/mongodb');
+//schema
+const Koala = require('../modules/Koala');
 
-// Schema goes here
 
 
 // GET Route
