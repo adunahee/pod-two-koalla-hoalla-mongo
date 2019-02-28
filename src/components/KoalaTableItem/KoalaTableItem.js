@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 
 class KoalaTableItem extends Component {
     render() {
+        console.log(this.props);
         return(
-            <div>table item</div>
+            <tr>
+                <td>table item</td>
+
+            </tr>
         )
     }
 }
