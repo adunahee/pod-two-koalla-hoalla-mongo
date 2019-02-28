@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App/App';
-import registerServiceWorker from './registerServiceWorker';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { takeEvery, put } from 'redux-saga/effects';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
@@ -18,9 +17,8 @@ function* rootSaga() {
 //Sagas
 function* getKoalas(action) {
     try {
-        console.log('In getKoalas saga line 21');
-        
-        yield put();
+        const response = yield axios.get('/api/koala');
+        yield put({type: 'SET_KOALAS', payload: response.data});
     } catch (error) {
         console.log('Error gettings tags.');
         alert('there was a problem getting getKoalas.')
@@ -73,6 +71,9 @@ const setKoalas = (state = [], action) => {
 const sagaMiddleware = createSagaMiddleware();
 
 const storeInstance = createStore(
+    combineReducers({
+        setKoalas,
+    }),
     applyMiddleware(sagaMiddleware, logger),
 );
 
@@ -80,4 +81,3 @@ sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>,
     document.getElementById('react-root'));
-registerServiceWorker();
