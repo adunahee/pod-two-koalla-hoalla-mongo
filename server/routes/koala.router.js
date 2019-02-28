@@ -3,6 +3,7 @@ const router = express.Router();
 //runs mongodb connection
 require('../modules/mongodb');
 //schema
+
 const Koala = require('../modules/Koala');
 
 
@@ -30,7 +31,15 @@ router.get('/', (req, res) => {
 });
 
 // POST route
-
+router.post('/', (req, res) => {
+    const newKoala = req.body;
+    Koala.create(newKoala).then((response) => {
+        res.sendStatus(201);
+    }).catch((error) => {
+        console.log(`error in posting koala: ${error}`);
+        res.sendStatus(500);
+    })
+})
 
 // PUT route
 

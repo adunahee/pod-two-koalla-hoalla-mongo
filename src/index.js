@@ -38,12 +38,15 @@ function* markTransfer(action) {
 
 function* addKoala(action) {
     try {
-        console.log('In addKoala saga line 43');
+        // console.log(action);
+        yield axios.post('/api/koala', action.payload);
+        yield put({
+            type: 'GET_KOALAS'
+        });
 
-        yield put();
     } catch (error) {
-        console.log('Error gettings tags.');
-        alert('there was a problem getting addKoala.')
+        console.log('error', error);
+        alert('there was a problem adding addKoala.')
     }
 }
 
