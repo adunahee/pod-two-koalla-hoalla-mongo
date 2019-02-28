@@ -16,10 +16,12 @@ class KoalaTable extends Component {
                             <th>Gender</th>
                             <th>Age</th>
                             <th>Notes</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.reduxStore.setKoalas.map((koala, i) => {
+                        {this.props.reduxStore.setKoalas.length > 0 &&
+                            this.props.reduxStore.setKoalas.map((koala, i) => {
                             return <KoalaTableItem key={i} koala={koala} />
                         })}
                     </tbody>
