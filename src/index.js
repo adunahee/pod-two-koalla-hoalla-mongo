@@ -28,8 +28,8 @@ function* getKoalas(action) {
 function* markTransfer(action) {
     try {
         console.log('In markTransfer saga line 32');
-
-        yield put();
+        yield axios.put(`/api/koala/`, action.payload )
+        yield put({type: 'GET_KOALAS'});
     } catch (error) {
         console.log('Error gettings tags.');
         alert('there was a problem getting markTransfer.')

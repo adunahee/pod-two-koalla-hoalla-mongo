@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
 class KoalaTableItem extends Component {
 
@@ -16,7 +17,9 @@ class KoalaTableItem extends Component {
     }
 
     handleUpdateClick = () => {
-        this.props.dispatch({ type: 'MARK_TRANSFER', payload: this.props.koala._id })
+        const payload = this.props.koala;
+        payload.ready_to_transfer = true;
+        this.props.dispatch({ type: 'MARK_TRANSFER', payload: payload })
     }
 
     render() {
@@ -34,4 +37,4 @@ class KoalaTableItem extends Component {
     }
 }
 
-export default KoalaTableItem;
+export default connect()(KoalaTableItem);
