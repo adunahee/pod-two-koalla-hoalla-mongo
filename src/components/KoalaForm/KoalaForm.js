@@ -5,8 +5,8 @@ class KoalaForm extends Component {
     state = {
         name: '',
         gender: '',
-        age: '',
-        ready_to_transfer: '',
+        age: 0,
+        ready_to_transfer: false,
         notes: ''
     }
 
@@ -32,8 +32,8 @@ class KoalaForm extends Component {
                 <form>
                     <input id='name' placeholder='name' onChange={this.handleChange}/>
                     <input id='gender' placeholder='gender' onChange={this.handleChange}/>
-                    <input id='age' placeholder='age' onChange={this.handleChange}/>
-                    <input id='ready_to_transfer' placeholder='ready to transfer' onChange={this.handleChange}/>
+                    <input type='number' id='age' placeholder='age' onChange={this.handleChange}/>
+                    {/* <input id='ready_to_transfer' placeholder='ready to transfer' onChange={this.handleChange}/> */}
                     <input id='notes' placeholder='notes' onChange={this.handleChange}/>
                     <button onClick={this.handleSubmit}>Add koala</button>
                 </form>
