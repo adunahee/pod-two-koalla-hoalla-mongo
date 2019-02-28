@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 
 class KoalaForm extends Component {
     //fill this out with required fields
-    state = { 
-
+    state = {
+        name: '',
+        gender: '',
+        age: '',
+        ready_to_transfer: '',
+        notes: ''
     }
 
     //write POST request
